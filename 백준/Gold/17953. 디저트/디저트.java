@@ -34,29 +34,25 @@ public class Main {
 		for(int idx = 0; idx < dessert; idx++) {
 			maxSatisfied[idx][0] = satisfied[idx][0];
 		}
-
 		
+		// 날짜에 따라 최댓값을 구해보자.
 		for(int col = 1; col < date; col++) {
 			for(int row = 0; row < dessert; row++) {
-				// 임시 최댓값
-				int tmpMax = 0;
 				for(int tmpRow = 0; tmpRow < dessert; tmpRow++) {
 					if(tmpRow != row) {
-						// 전날의 현재 디저트와 다른 디저트들에 저장된 값 중에 최댓값을 구해보자.
-						tmpMax = Math.max(maxSatisfied[tmpRow][col-1], tmpMax);
+						// 전날이랑 다른걸 먹으면 현재 만족도를 더해줘서 더 큰 값을 저장
+						maxSatisfied[row][col] = Math.max(maxSatisfied[tmpRow][col-1] + satisfied[row][col], maxSatisfied[row][col]);					
+					} else {
+						// 같은 걸 먹으면 현재 만족도/2를 더해줘서 더 큰 값을 저장
+						maxSatisfied[row][col] = Math.max(maxSatisfied[tmpRow][col-1] + satisfied[row][col]/2, maxSatisfied[row][col]);
 					}
-				}
-				
-				// 날짜에 따라 최댓값을 구해보자.
-				// 전날이랑 같은 걸 먹으면 현재 만족도/2를 더해주고 다른걸 먹으면 현재 만족도를 더해줘서 더 큰 값을 저장
-				maxSatisfied[row][col] = Math.max(maxSatisfied[row][col-1] + satisfied[row][col]/2, tmpMax + satisfied[row][col]);				
+				}	
 			}
 		}
 		// 마지막 날 만족도 중에 최댓값 구해주고
 		int max = 0;
 		for(int row = 0; row < dessert; row++) {
 			max = Math.max(maxSatisfied[row][date-1], max);
-
 		}
 		
 		// 출력
