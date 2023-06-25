@@ -122,7 +122,7 @@ public class Main {
 	// findSet
 	static int findSet(int x) {
 		if(x == parent[x]) return x;
-		return findSet(parent[x]);
+		return parent[x] = findSet(parent[x]);
 	}
 	
 	// union (y 대표자를 찾아서 x 대표자로 업데이트)
