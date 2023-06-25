@@ -98,7 +98,7 @@ public class Main {
 		if(x == parent[x]) {
 			return x;
 		}
-		return findSet(parent[x]);
+		return parent[x] = findSet(parent[x]);
 	}
 	
 	// union (y 대표자를 x 대표자로 바꾸기)
