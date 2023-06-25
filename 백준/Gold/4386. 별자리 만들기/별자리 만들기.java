@@ -112,7 +112,7 @@ public class Main {
 	static int findSet(int x) {
 		if(x == parent[x]) return x;
 		
-		return findSet(parent[x]);
+		return parent[x] = findSet(parent[x]);
 	}
 	
 	// Union (y를 x 밑으로 합치기)
