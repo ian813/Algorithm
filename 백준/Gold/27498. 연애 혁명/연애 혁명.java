@@ -42,6 +42,10 @@ public class Main {
         for(int i = 1; i <= student; i++) {
             p[i] = i;
         }
+        // 포기시킬 애정도
+        int minAffection = 0;
+
+        int pick = 0;
 
         // 사랑정보 입력받고 리스트에 추가
         for(int i = 0; i < loveRelation; i++) {
@@ -52,11 +56,14 @@ public class Main {
             int isTrue = Integer.parseInt(st.nextToken());
 
             Love l = new Love(student1, student2, affection);
+            
+            minAffection += affection; // 모든 애정도를 일단 더해주기
 
-
-            // 이미 성사된 관계는 union
+            // 이미 성사된 관계는 union, 카운팅
             if(isTrue == 1) {
                 union(student1, student2);
+                pick++;
+                minAffection -= affection; // 성사된 관계의 애정도는 빼주기
             } else { // 성사 안 된 관계들만 리스트에 담아주기
                 loveList.add(l);
             }
@@ -64,17 +71,17 @@ public class Main {
         // 내림차순 정렬(큰 거를 연결시켜줘서 작은 거를 남겨줘야 한다.)
         Collections.sort(loveList);
         
-        // 포기시킬 애정도
-        int minAffection = 0;
 
         for(int i = 0; i < loveList.size(); i++) { // 리스트를 전부 돌면서
             Love l = loveList.get(i);
 
-            if (findSet(l.student1) != findSet(l.student2)) { // 대표자 다르면 유니온
+            if (findSet(l.student1) != findSet(l.student2)) { // 대표자 다르면 카운팅, 유니온
+                pick++;
                 union(l.student1, l.student2);
-            } else { // 대표자 같으면 포기시키기 (어차피 연결은 못시켜)
-                minAffection += l.affection;
+                minAffection -= l.affection; // 관계가 성사되었으므로 애정도 빼주기
             }
+
+            if (pick == student - 1) break; // 원하는 만큼 뽑았으므로 중단
         }
         // 출력
         System.out.println(minAffection);
