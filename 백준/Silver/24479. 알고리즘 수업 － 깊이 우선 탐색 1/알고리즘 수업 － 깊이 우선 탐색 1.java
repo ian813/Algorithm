@@ -40,16 +40,16 @@ public class Main {
         }
 
         sc.close();
-        // 각 노드를 몇번쨰로 방문했는지 세줄 배열
-        cntArr = new int[node+1];
+        // 각 노드를 몇번쨰로 방문했는지 세줄 배열 (forEach문 쓰려고 노드랑 인덱스 안맞춰줌,, 나중에 node-1 해서 저장해주면 됨)
+        cntArr = new int[node];
         // 몇번째 방문인지 담을 변수
         cnt = 1;
         // 방문체크
         visited = new boolean[node+1];
         // 탐색
         DFS(startNode);
-        for (int i = 1; i <= node; i++) {
-            sb.append(cntArr[i] + "\n");
+        for (int ans : cntArr) {
+            sb.append(ans + "\n");
         }
         // 출력
         System.out.println(sb);
@@ -58,10 +58,9 @@ public class Main {
     static void DFS(int cur) {
         // 방문체크
         visited[cur] = true;
-        cntArr[cur] = cnt++;
+        cntArr[cur-1] = cnt++;
 
-        for (int i = 0; i < adjList[cur].size(); i++) {
-            int next = adjList[cur].get(i);
+        for (int next : adjList[cur]) {
 
             if(!visited[next]) {
                 // 인접 정점이고 방문 안했으면
