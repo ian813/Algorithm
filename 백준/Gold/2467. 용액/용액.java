@@ -1,19 +1,23 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 /**
  * 오름차순으로 주어져서 더 쉽게 구할 수 있다.
  */
 public class Main {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int N = Integer.parseInt(br.readLine());
 
-		int N = sc.nextInt();
+		StringTokenizer st = new StringTokenizer(br.readLine());
 
 		int[] solution = new int[N];
 
 		for (int i = 0; i < N; i++) {
-			solution[i] = sc.nextInt();
+			solution[i] = Integer.parseInt(st.nextToken());
 		}
 
 		// 시작 인덱스, 끝 인덱스
