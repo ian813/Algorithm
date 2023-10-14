@@ -1,6 +1,5 @@
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class Main {
@@ -13,13 +12,19 @@ public class Main {
 	static final int[] dr = {-1, 1, 0, 0};
 	static final int[] dc = {0, 0, -1, 1};
 
-	private static class Point {
-		int r, c, cost, totalCost;
+	// 포인트 클래스 (위치와 총 비용 저장) 총 비용으로 오름차순 정렬
+	private static class Point implements Comparable<Point> {
+		int r, c, totalCost;
 
 		private Point(int r, int c, int totalCost) {
 			this.r = r;
 			this.c = c;
 			this.totalCost = totalCost;
+		}
+
+		@Override
+		public int compareTo(Point o) {
+			return this.totalCost - o.totalCost;
 		}
 	}
 
@@ -56,7 +61,7 @@ public class Main {
 				Arrays.fill(row, 987654321);
 			}
 
-			Queue<Point> queue = new LinkedList<>();
+			PriorityQueue<Point> queue = new PriorityQueue<>();
 
 			// 출발점 큐에 담아주기
 			queue.add(new Point(0, 0, map[0][0]));
