@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class Main {
 
 	static int N, M;
-	// 델타배열 (하 우 우하 방향)
-	static int[] dr = {1, 0, 1};
-	static int[] dc = {0, 1, 1};
+	// 델타배열 (하 우 방향)
+	static int[] dr = {1, 0};
+	static int[] dc = {0, 1};
 
 	static int[][] dp, map;
 
@@ -62,7 +62,7 @@ public class Main {
 			// 현재 점 뽑아주기
 			Point cur = queue.poll();
 
-			for (int i = 0; i < 3; i++) {
+			for (int i = 0; i < 2; i++) {
 				// 델타배열로 탐색
 				int nr = cur.r + dr[i];
 				int nc = cur.c + dc[i];
