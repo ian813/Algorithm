@@ -35,18 +35,23 @@ public class Main {
 				// 새로 들어오는 애
 				int change = people[idx];
 
+				// 삽입할 인덱스
 				int insertIdx = idx;
 
 				for (int i = idx - 1; i >= 0; i--) {
 					if (change < line[i]) {
+						// 더 작은 값 보면 카운팅하고 inserIdx 초기화
 						cnt++;
 						insertIdx = i;
 					}
 				}
 
 				if (insertIdx != idx) {
+					// 삽입할 인덱스가 갱신됐으면
+					// back 연산
 					back(idx, insertIdx, change, line);
 				} else {
+					// 그게 아니면 맨 뒤에 넣어줌
 					line[insertIdx] = change;
 				}
 			}
@@ -57,7 +62,7 @@ public class Main {
 		System.out.println(sb);
 	}
 
-	// changeIdx 자리에 idx 값 넣고 나머지는 뒤로 밀기
+	// insertIdx 자리에 삽입하고 나머지는 뒤로 밀기
 	private static void back(int idx, int insertIdx, int change, int[] arr) {
 
 		for (int i = idx; i > insertIdx; i--) {
