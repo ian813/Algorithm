@@ -1,4 +1,7 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
 
@@ -9,12 +12,13 @@ public class Main {
 	static int[] dr = {1, 1, 1};
 	static int[] dc = {-1, 0, 1};
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
 		// 우주 크기
-		row = sc.nextInt();
-		col = sc.nextInt();
+		row = Integer.parseInt(st.nextToken());
+		col = Integer.parseInt(st.nextToken());
 
 		// 우주 배열, 각 도착지별 도착 정보
 		space = new int[row][col];
@@ -22,9 +26,10 @@ public class Main {
 
 		// 정보 입력받기 (첫 행에는 dp 배열에도 똑같이 저장)
 		for (int r = 0; r < row; r++) {
+            st = new StringTokenizer(br.readLine());
 			for (int c = 0; c < col; c++) {
 
-				space[r][c] = sc.nextInt();
+				space[r][c] = Integer.parseInt(st.nextToken());
 
 				if (r == row - 1) {
 					// 맨 끝행은 최댓값으로 채워넣기
