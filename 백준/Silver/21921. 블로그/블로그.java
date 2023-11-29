@@ -1,21 +1,26 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Main {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
 		// 측정 최대 기간
-		int endDay = sc.nextInt();
+		int endDay = Integer.parseInt(st.nextToken());
 
 		// 구할 구간
-		int period = sc.nextInt();
+		int period = Integer.parseInt(st.nextToken());
 
 		// 일자별 방문자 수
 		int[] visit = new int[endDay];
 
+        st = new StringTokenizer(br.readLine());
 		for (int i = 0; i < endDay; i++) {
-			visit[i] = sc.nextInt();
+			visit[i] = Integer.parseInt(st.nextToken());
 		}
 
 		// 누적 방문자 수 최댓값
