@@ -19,7 +19,7 @@ public class Main {
 
 			if (cur == 0) {
 				// 입력받은 값이 0이면
-				if (queue.size() > 0) {
+				if (!queue.isEmpty()) {
 					// 큐에 값이 존재하면 가장 작은 값을 저장하고 없애기
 					sb.append(queue.poll()).append("\n");
 					continue;
