@@ -26,7 +26,7 @@ public class Main {
 			}
 		}
 
-		// 시작 높이, 시작 인덱스, 끝 높이, 끝 인덱스
+		// 시작 높이, 시작 인덱스
 		int startHeight = map[0];
 		int startIdx = 0;
 
@@ -54,7 +54,7 @@ public class Main {
 			}
 		}
 
-		// 시작 높이, 시작 인덱스, 끝 높이, 끝 인덱스
+		// 시작 높이, 시작 인덱스
 		startHeight = map[width - 1];
 		startIdx = width - 1;
 
