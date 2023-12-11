@@ -1,32 +1,38 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Main {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
 
 		// 가로 세로 길이
-		int width = sc.nextInt();
-		int height = sc.nextInt();
+		int width = Integer.parseInt(st.nextToken());
+		int height = Integer.parseInt(st.nextToken());
 
+		st = new StringTokenizer(br.readLine());
 		// 자르는 횟수
-		int cut = sc.nextInt();
+		int cut = Integer.parseInt(st.nextToken());
 
 		// 세로 가로 잘리는 지점 저장할 리스트
 		ArrayList<Integer> horizon = new ArrayList<>();
 		ArrayList<Integer> vertical = new ArrayList<>();
 
 		while (cut-- > 0) {
+			st = new StringTokenizer(br.readLine());
 			// 자르는 방향
-			int direction = sc.nextInt();
+			int direction = Integer.parseInt(st.nextToken());
 
 			// 잘리는 위치 저장
 			if (direction == 0) {
-				vertical.add(sc.nextInt());
+				vertical.add(Integer.parseInt(st.nextToken()));
 			} else {
-				horizon.add(sc.nextInt());
+				horizon.add(Integer.parseInt(st.nextToken()));
 			}
 		}
 
