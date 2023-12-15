@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.io.*;
 
 public class Main {
 
@@ -8,12 +8,12 @@ public class Main {
 
 	private static int[] nameStroke;
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		// 종민이와 그녀의 영어 이름
-		String jongmin = sc.next();
-		String her = sc.next();
+		String jongmin = br.readLine();
+		String her = br.readLine();
 
 		// 두 이름의 길이는 같음을 보장하므로..
 		int length = 2 * jongmin.length();
