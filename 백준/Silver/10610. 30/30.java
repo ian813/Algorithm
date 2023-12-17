@@ -43,15 +43,15 @@ public class Main {
 				// 오름차순 정렬
 				Arrays.sort(numArr);
 
-				String ans = "";
+				StringBuilder sb = new StringBuilder();
 
 				for (int i = numArr.length - 1; i >= 0; i--) {
 					// 끝에서부터 담기
-					ans += numArr[i];
+					sb.append(numArr[i]);
 				}
 
 				// 답 출력
-				System.out.println(ans);
+				System.out.println(sb);
 			} else {
 				// 3의 배수 아니면 -1 출력
 				System.out.println(-1);
