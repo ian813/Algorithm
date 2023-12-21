@@ -33,13 +33,9 @@ public class Main {
 			}
 		}
 
-		while (!stack.empty()) {
-			// 배열 다 돌았을 때 스택이 비어있지 않으면
-			// 짝이 맞지 않은 열린 괄호들이 남은 것이므로
-			// 스택에서 빼주면서 괄호를 추가해서 짝을 맞춰줌
-			stack.pop();
-			cnt++;
-		}
+        // 만약 스택에 남아있는 열린 괄호가 있을 경우
+        // 그만큼 괄호를 추가해서 짝 맞춰주기
+        cnt += stack.size();
 
 		System.out.println(cnt);
 	}
