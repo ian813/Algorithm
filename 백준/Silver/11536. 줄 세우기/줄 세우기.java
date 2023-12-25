@@ -1,13 +1,15 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		// 사람 수
-		int people = sc.nextInt();
+		int people = Integer.parseInt(br.readLine());
 
 		// 선수들의 입력정보를 저장할 배열과 그걸 오름차순으로 정렬하기 위한 카피배열
 		String[] name = new String[people];
@@ -15,7 +17,7 @@ public class Main {
 
 		// 정보 입력받기
 		for (int i = 0; i < people; i++) {
-			name[i] = sc.next();
+			name[i] = br.readLine();
 			sortName[i] = name[i];
 		}
 
