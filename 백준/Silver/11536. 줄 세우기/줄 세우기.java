@@ -27,7 +27,10 @@ public class Main {
 		if (isIncreasing(name, sortName)) {
 			// 오름차순과 일치하면 INCREASING 출력
 			System.out.println("INCREASING");
-		} else if (isDecreasing(name, sortName)) {
+            return;
+		}
+        
+        if (isDecreasing(name, sortName)) {
 			// 내림차순과 일치하면 DECREASING 출력
 			System.out.println("DECREASING");
 		} else {
