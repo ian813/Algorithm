@@ -1,12 +1,16 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Main {
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st;
 
-		int testCase = sc.nextInt();
+		int testCase = Integer.parseInt(br.readLine());
 
 		StringBuilder sb = new StringBuilder();
 
@@ -14,13 +18,14 @@ public class Main {
 			// 테케만큼 반복
 
 			// 나무 개수 입력받기
-			int tree = sc.nextInt();
+			int tree = Integer.parseInt(br.readLine());
+            st = new StringTokenizer(br.readLine());
 
 			// 각 나무의 높이 정보 입력받기
 			int[] height = new int[tree];
 
 			for (int i = 0; i < tree; i++) {
-				height[i] = sc.nextInt();
+				height[i] = Integer.parseInt(st.nextToken());
 			}
 
 			// 오름차순 정렬
