@@ -19,9 +19,7 @@ public class Main {
 			long gcd = findGCD(A, B);
             
 			// 최소공배수 구하기 (gcd * lcm = A * B)
-			long lcm = A * B;
-
-            lcm /= gcd;
+			long lcm = (A * B) / gcd;
             
 			// 스트링빌더에 저장
 			sb.append(lcm).append("\n");
