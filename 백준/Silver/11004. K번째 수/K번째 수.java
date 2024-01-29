@@ -15,7 +15,7 @@ public class Main {
         int targetIdx = Integer.parseInt(st.nextToken()) - 1;
 
         // 숫자 데이터 받을 배열
-        Integer[] numArr = new Integer[num];
+        int[] numArr = new int[num];
 
         st = new StringTokenizer(br.readLine());
 
