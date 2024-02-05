@@ -32,16 +32,6 @@ int findMaxSquare() {
     return ans * ans;
 }
 
-// 최소값 반환
-int min(int a, int b) {
-    return a < b ? a : b;
-}
-
-// 최대값 반환
-int max(int a, int b) {
-    return a > b ? a : b;
-}
-
 int main() {
 
     scanf("%d %d", &height, &width);
